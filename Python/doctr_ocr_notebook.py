@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1c5dmVW-nOFsBhcQGFU8gxVp9QLW1SU3o
 """
 
-!pip install -e git+https://github.com/mindee/doctr.git#egg=python-doctr[torch]
+#pip install -e git+https://github.com/mindee/doctr.git#egg=python-doctr[torch]
 
 # Commented out IPython magic to ensure Python compatibility.
 # %matplotlib inline
@@ -17,6 +17,7 @@ import os
 #os.environ['USE_TF'] = '1'
 os.environ['USE_TORCH'] = '1'
 
+import json
 import matplotlib.pyplot as plt
 
 from doctr.io import DocumentFile
@@ -24,12 +25,14 @@ from doctr.models import ocr_predictor
 
 model = ocr_predictor(pretrained=True)
 
-document = DocumentFile.from_images("/content/SamsClub.jpeg")
+document = DocumentFile.from_images("C:\\Users\\navee\\Documents\\Soloprenuer\\GROP\\GROP\\Python\\Images\\Patel.jpeg")
 
 result = model(document)
 
-result.show(document)
+#result.show(document)
 
 json_response = result.export()
 
-json_response
+json_object = json.dumps(json_response, indent=4)
+with open("C:\\Users\\navee\\Documents\\Soloprenuer\\GROP\\GROP\\Python\\Images\\sample.json", "w") as outfile:
+    outfile.write(json_object)
