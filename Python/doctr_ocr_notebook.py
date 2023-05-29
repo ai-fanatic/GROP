@@ -25,7 +25,7 @@ from doctr.models import ocr_predictor
 
 model = ocr_predictor(pretrained=True)
 
-document = DocumentFile.from_images("C:\\Users\\navee\\Documents\\Soloprenuer\\GROP\\GROP\\Python\\Images\\Patel.jpeg")
+document = DocumentFile.from_images("C:\\Users\\navee\\Documents\\Soloprenuer\\GROP\\GROP\\Python\\Images\\Bucee.jpeg")
 
 result = model(document)
 
@@ -34,5 +34,5 @@ result = model(document)
 json_response = result.export()
 
 json_object = json.dumps(json_response, indent=4)
-with open("C:\\Users\\navee\\Documents\\Soloprenuer\\GROP\\GROP\\Python\\Images\\sample.json", "w") as outfile:
+with open("C:\\Users\\navee\\Documents\\Soloprenuer\\GROP\\GROP\\Python\\Images\\sample4.json", "w") as outfile:
     outfile.write(json_object)
